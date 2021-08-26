@@ -1,24 +1,40 @@
-import React from 'react'
+import React from "react";
 
-export default function card() {
-    const slider={
-        width:'18 rem',
-            }
-  
-    return (
+const MenuCard = ({ menu }) => {
+   console.log(menu);
+
+  return (
+    <>
+      <section className="row">
         
-      
-     <div className="card mt-3  " >
-  <img src="https://www.easyhireme.com/easyhire-updated/images/job-img3.png" className="card-img-top" alt="..." />
+
+        
+        {menu.map((curElem) => {
+          const { id, title, description, image, price,discountprice,discountpercent } = curElem;
+
+          return (
+            <>
+            <div className="col-md-3">
+                     <div className="card mt-3 " >
+  <img src={image} className="card-img-top" alt="..." />
   <div className="card-body">
-    <h6 className="card-title">Chennai | Novaotel Chenna.   </h6>
-    <p className="card-text">Weekend breaks | Affordable Price</p>
+    <h6 className="card-title">{title}   </h6>
+    <p className="card-text">{description}</p>
 
   </div>
   <div class="card-footer">
-    ₹ 2324 <del>₹ 3599</del> <span className="text-success float-right">Save 39%</span>
+    ₹ {discountprice}<del>₹{[price]}</del> <span className="text-success float-right">Save {discountpercent}</span>
   </div>
 </div>
-     
-    )
-}
+</div>
+            </>
+          );
+        })}
+       
+      </section>
+    </>
+  );
+};
+
+export default MenuCard;
+
