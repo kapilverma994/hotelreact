@@ -1,40 +1,55 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function slider() {
-    return (
-        <div>
+export default function Slider({banner}) {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/banners")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result.data);
+          console.log(result)
+        },
+    
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
+  return (
+   <>
+   <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://www.easyhireme.com/easyhire-updated/images/hotel-banner.jpg" class="d-block w-100" alt="..." />
+     
+  {items.map((curElem) => {  
+console.log(curElem[0])
+    return (
+      <>
+<div class={`carousel-item ${curElem.id==4?'active':''}`}  data-interval="10000">
+      <img src={curElem.image} class="d-block w-100" alt="..." />
     </div>
-    <div class="carousel-item">
-      <img src="https://www.easyhireme.com/easyhire-updated/images/hotel-banner.jpg" class="d-block w-100" alt="..." />
-    </div>
-    <div class="carousel-item">
-      <img src="https://www.easyhireme.com/easyhire-updated/images/hotel-banner.jpg" class="d-block w-100" alt="..." />
-    </div>
+   
+    </>
+    )
+   })}
+    
+  
   </div>
-  <a class="carousel-control-prev " href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next  " href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-
-  
-
-  
-        </div>
-    )
+   </>
+  )
 }
