@@ -4,8 +4,14 @@ import Card from './components/Card';
 import Header from './components/navbar';
 import Slider from './components/Slider';
 import Footer from './components/footer';
-import Hotels from './components/HotelsCard';
-import bannerapi from './components/sliderapi';
+import Detail from './components/Detail';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
   return (
@@ -23,6 +29,14 @@ function App() {
 </div>
 
 <Footer />
+<Router>
+<Switch>
+          <Route path="/detail">
+            <Detail />
+          </Route>
+       
+        </Switch>
+        </Router>
 
 
 </>
