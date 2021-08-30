@@ -5,12 +5,14 @@ export default function footer() {
 margin:'40px',
     }
     const list={
-        listStyleType:'none'
+        listStyleType:'none',
+        margin:'0',
+        padding:'0'
     }
     return (
       
         <div>
-            <footer className="bg-dark text-white mt-3 ">
+            <footer className="bg-dark text-white mt-3 sticky-bottom ">
                 <div className="mx-5 ">
 
              
@@ -19,9 +21,9 @@ margin:'40px',
                 <img src="https://www.easyhireme.com/easyhire-updated/img/easyhrie1.png" height="100px" style={mystyle}  />
 
             </div>
-            <div className="col-md-3">
-                <h4>Company</h4>
-<ul style={list}>
+            <div className="col-md-3 ">
+                <h4 >Company</h4>
+<ul style={list }>
     <li>Home</li>
     <li>About</li>
     <li>Register Your Company</li>

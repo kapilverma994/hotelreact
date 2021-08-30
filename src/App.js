@@ -1,7 +1,5 @@
 import './App.css';
-import Card from './components/Card'
-import Header from './components/navbar';
-import Slider from './components/Slider';
+import Header from './components/Navbar'
 import Footer from './components/footer';
 import Detail from './components/Detail';
 import {
@@ -9,35 +7,30 @@ import {
     Switch,
     Route,
     Link,
-    useHistory
+    useHistory,
+    BrowserRouter,
+    Redirect
 } from "react-router-dom";
+import Home from './components/Home';
 
 function App() {
     return (
   <>
+  <BrowserRouter>
+  
+            
   <Header/>
-  
-  <div className=" mt-3"><Slider /></div>
-  <hr/>
-  <h3 className="text-center">Discover Hot Deals</h3>
-  <hr className="w-25"/>
-  <br />
-  <div className="container">
-  <Card/>
-  
-  </div>
-  
-  <Footer />
-  <Router>
   <Switch>
-            <Route path="hotel/:id">
-              <Detail />
+    
+      <Route path="/" exact component={Home}/>
+            <Route path="/hotels/:id" component={Detail}>
             </Route>
-         
+        <Redirect to= "/"/>
+  <Footer />
           </Switch>
-          </Router>
+          </BrowserRouter>
   
-  
+<Footer/>
   </>
     );
   }

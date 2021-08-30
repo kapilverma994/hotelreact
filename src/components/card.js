@@ -12,6 +12,7 @@ const MenuCard = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const history = useHistory()
+ 
   const handleDetailPage = (curElem)=>{
     console.log(curElem)
     history.push(`/hotels/${curElem}`)
@@ -51,10 +52,14 @@ const MenuCard = () => {
   <div className="card-body">
     <h6 className="card-title">{curElem.title}   </h6>
     <p className="card-text">{curElem.description}</p>
-<button className="btn btn-primary" onClick={()=>handleDetailPage(curElem.id)}>Read More..</button>
+
+  </div>
+  <div className="text-right p-2">
+  <button  className="btn btn-sm btn-primary" onClick={()=>handleDetailPage(curElem.id)}>Read More...</button>
+
   </div>
   <div class="card-footer">
-    ₹ {curElem.discount_price} <del>₹{curElem.price}</del> <span className="text-success float-right">Save {curElem.discount_percent}%</span>
+    ₹ {curElem.discount_price} <del>{curElem.price}</del> <span className="text-success float-right">Save {curElem.discount_percent}%</span>
   </div>
 </div>
 </div>
