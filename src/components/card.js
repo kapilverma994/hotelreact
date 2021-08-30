@@ -38,10 +38,12 @@ const MenuCard = () => {
   return (
     <>
       <section className="row ">
-        
 
-        
-        {items.map((curElem) => {
+       {
+         isLoaded ?
+(         items.length>0 ?
+         (
+         items.map((curElem) => {
           // const { id, title, description, image, price,discountprice,discountpercent } = curElem;
 
           return (
@@ -65,7 +67,11 @@ const MenuCard = () => {
 </div>
             </>
           );
-        })}
+        })):"No records Found "
+      ):"Loading...." } 
+
+        
+        
        
       </section>
     </>

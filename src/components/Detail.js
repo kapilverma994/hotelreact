@@ -31,10 +31,11 @@ export default function Detail() {
    
     return (
         <div>
-       
+
+        
+    
         <div className="container">
-            
-         
+{items.status?(
          <div className="row m-2" >
              <div className="col-md-12">
              <h3 className="d-inline-block">{items.title}</h3> <i className="fa fa-star "></i>
@@ -66,8 +67,10 @@ export default function Detail() {
 </div>
 
          </div>
+         ):'No Record Found'}
         
         </div>
+
         <hr className="bg-dark"/>  
         </div>
    
