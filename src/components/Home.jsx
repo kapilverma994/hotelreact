@@ -6,7 +6,7 @@ import Header from './Navbar'
 
 export default function Home() {
     return (
-        <div>
+        <div style={{minHeight:'400px'}}>
   
   <div className=" mt-3"><Slider /></div>
   <hr/>

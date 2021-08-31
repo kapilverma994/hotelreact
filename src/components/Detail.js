@@ -30,7 +30,7 @@ export default function Detail() {
       }, [])
    
     return (
-        <div>
+        <div  style={{minHeight:'400px'}}>
 
         
     
