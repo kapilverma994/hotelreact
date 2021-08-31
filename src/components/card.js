@@ -19,7 +19,7 @@ const MenuCard = () => {
   }
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/hotels")
+    fetch("https://admin.onlinefrsh.com/api/hotels")
       .then(res => res.json())
       .then(
         (result) => {
@@ -50,7 +50,7 @@ const MenuCard = () => {
             <>
             <div className="col-md-3 mb-3">
                      <div className="card mt-3 h-100 " >
-  <img src={curElem.image} className="card-img-top" alt="..." />
+  <img src={curElem.image} className="card-img-top" height="142px" alt="..." />
   <div className="card-body">
     <h6 className="card-title">{curElem.title}   </h6>
     <p className="card-text">{curElem.description}</p>

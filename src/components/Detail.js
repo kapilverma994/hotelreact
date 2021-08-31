@@ -13,7 +13,7 @@ export default function Detail() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/api/gethotel/${id}`)
+        fetch(`https://admin.onlinefrsh.com/api/gethotel/${id}`)
           .then(res => res.json())
           .then(
             (result) => {

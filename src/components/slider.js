@@ -7,7 +7,7 @@ export default function Slider({banner}) {
 
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/banners")
+    fetch("https://admin.onlinefrsh.com/api/banners")
       .then(res => res.json())
       .then(
         (result) => {
@@ -27,12 +27,13 @@ export default function Slider({banner}) {
    <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
      
-  {items.map((curElem) => {  
-console.log(curElem[0])
+  {items.map((curElem,index) => {  
+
+
     return (
       <>
-<div class={`carousel-item ${curElem.id==4?'active':''}`}  data-interval="10000">
-      <img src={curElem.image} class="d-block w-100" alt="..." />
+<div class={`carousel-item ${index==0?'active':''}`}  data-interval="10000">
+      <img src={curElem.image} class="d-block w-100" height="300px" alt="..." />
     </div>
    
     </>
